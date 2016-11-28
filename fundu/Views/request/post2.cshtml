@@ -1,0 +1,145 @@
+﻿@model fundu.Models.PostModel
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div>
+            @{var listItems = new List<System.Web.UI.WebControls.ListItem>
+    {
+          new System.Web.UI.WebControls.ListItem { Text = "Ernakulam", Value="1" },
+          new System.Web.UI.WebControls.ListItem { Text = "Loc2", Value="2" },
+          new System.Web.UI.WebControls.ListItem { Text = "Loc3", Value="3" }
+    };
+            }
+            @Html.DropDownList("ddlLoc", new SelectList(listItems, "Value", "Text"))
+
+        </div>
+        <div>
+            @{var listItems2 = new List<System.Web.UI.WebControls.ListItem>
+    {
+          new System.Web.UI.WebControls.ListItem { Text = "Construction", Value="1" },
+          new System.Web.UI.WebControls.ListItem { Text = "Plumbing", Value="2" },
+          new System.Web.UI.WebControls.ListItem { Text = "Electrical", Value="3" }
+    };
+            }
+           @Html.DropDownList("ddlCat", new SelectList(listItems2, "Value", "Text"))
+
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.LocId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LocId)
+                @Html.ValidationMessageFor(model => model.LocId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CatId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CatId)
+                @Html.ValidationMessageFor(model => model.CatId)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PostDesc, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PostDesc)
+                @Html.ValidationMessageFor(model => model.PostDesc)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.budgetFrom, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.budgetFrom)
+                @Html.ValidationMessageFor(model => model.budgetFrom)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.budgetTo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.budgetTo)
+                @Html.ValidationMessageFor(model => model.budgetTo)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartDate)
+                @Html.ValidationMessageFor(model => model.StartDate)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndDate)
+                @Html.ValidationMessageFor(model => model.EndDate)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comment)
+                @Html.ValidationMessageFor(model => model.Comment)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.UID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UID)
+                @Html.ValidationMessageFor(model => model.UID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FollowPostId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FollowPostId)
+                @Html.ValidationMessageFor(model => model.FollowPostId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status)
+                @Html.ValidationMessageFor(model => model.Status)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+<script>
+    $(function () {
+        $("#StartDate").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#EndDate").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
